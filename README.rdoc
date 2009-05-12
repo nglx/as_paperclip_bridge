@@ -1,0 +1,20 @@
+=ActiveScaffold Paperclip Bridge
+
+The bridge automatically creates file upload scaffolding ui for any model containing Paperclip attachments.
+
+It should mostly work in a same way as file column bridge from ActiveScaffold but Paperclip was chosen cause is most popular and straightforward solution for file attachments.
+
+==Installation
+
+Run the following to install the plugin:
+  ./script/plugin install git://github.com/mnaglik/as_paperclip_bridge
+
+The was tested with the latest version of ActiveScaffold and Paperclip.
+
+==Usage
+
+Just install the plugin and paperclip attachments would be detected automatically.
+
+==Other
+
+Contact me at: marcin (at) thewayout (dot) eu
