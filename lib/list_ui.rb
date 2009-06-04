@@ -12,7 +12,7 @@ module ActiveScaffold
       
       def active_scaffold_column_paperclip_thumb(column, record)
         link_to( 
-          image_tag(record.send(column.name).url(:thumb), :border => 0), 
+          image_tag(record.send(column.name).url(:thumbnail), :border => 0), 
           record.send(column.name).url, 
           :popup => true)
       end
