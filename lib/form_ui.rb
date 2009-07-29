@@ -4,20 +4,25 @@ module ActiveScaffold
       def active_scaffold_input_paperclip(column, options)
         if @record.send("#{column.name}_file_name") 
           if @record.send(column.name).styles.include?(:thumb)
+           content = image_tag(@record.send(column.name).url(:thumb), :border => 0)            
+          else 
+            content = @record.send("#{column.name}_file_name")            
+          end
+                      
             content_tag(
               :div, 
-              content_tag(
-                :div, 
-                link_to(image_tag(@record.send(column.name).url(:thumb), :border => 0), @record.send(column.name).url, :popup => true) + " " + 
-                hidden_field(:record, "delete_#{column.name}", :value => "false")
-              )
+              link_to(content, @record.send(column.name).url, :popup => true) + " " + 
+              hidden_field(:record, "delete_#{column.name}", :value => "false") +
+              " | " +
+              link_to_function(as_(:remove_file), "$(this).previous().value='true'; p=$(this).up(); p.hide(); p.next().show();")
+            ) +
+            content_tag(
+              :div,
+              file_field(:record, column.name, options),
+              :style => "display: none"
             )
-          else
-            content_tag(:p, link_to(@record.send("#{column.name}_file_name"), @record.send(column.name).url, :popup => true), :class => "text-input")+" "+
-            hidden_field(:record, "delete_#{column.name}", :value => "false")
-          end
         else
-          file_field(:record, column.name, options)+" "+"<input type=hidden name='record[photos][-1][delete]'>"
+          file_field(:record, column.name, options)
         end
       end
     end

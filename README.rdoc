@@ -1,5 +1,12 @@
 =ActiveScaffold Paperclip Bridge
 
+This is a github fork of http://github.com/mnaglik/as_paperclip_bridge by mnaglik
+I extended the bridge for file delete/replace functionality mainly taken form the as_file_column_bridge.
+
+Contact me at: yay@rngtng.com
+
+Original File:
+
 The bridge automatically creates file upload scaffolding ui for any model containing Paperclip attachments.
 
 It should mostly work in a same way as file column bridge from ActiveScaffold but Paperclip was chosen cause is most popular and straightforward solution for file attachments.
