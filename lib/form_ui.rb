@@ -12,7 +12,7 @@ module ActiveScaffold
             content_tag(
               :div, 
               link_to(content, @record.send(column.name).url, :popup => true) + " " + 
-              hidden_field(:record, "delete_#{column.name}", :value => "false") +
+              hidden_field("record[#{column.name}]".to_sym, "delete_#{column.name}", :value => "false") +
               " | " +
               link_to_function(as_(:remove_file), "$(this).previous().value='true'; p=$(this).up(); p.hide(); p.next().show();")
             ) +
